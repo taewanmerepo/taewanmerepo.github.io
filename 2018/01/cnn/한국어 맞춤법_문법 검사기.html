@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>한국어 맞춤법/문법 검사기</title>
+	 
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<link rel="stylesheet" href="./한국어 맞춤법_문법 검사기_files/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="./한국어 맞춤법_문법 검사기_files/speller.css">
+	<style type="text/css">	</style>
+	<script type="text/javascript" src="./한국어 맞춤법_문법 검사기_files/jquery-1.10.2.js"></script>
+	<script src="./한국어 맞춤법_문법 검사기_files/jquery-ui.js"></script>
+	<script type="text/javascript" src="./한국어 맞춤법_문법 검사기_files/ZeroClipboard.min.js"></script>
+	<script src="./한국어 맞춤법_문법 검사기_files/speller(for NewUI).js"></script>
+ <meta name="google-site-verification" content="O10g1CUkQY4e8HJygeA4hfVN3Lb0TryxgxyV0HT_dnA"><script type="text/javascript">
+		var gaJsHost = "https://ssl."
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script><script src="./한국어 맞춤법_문법 검사기_files/ga.js" type="text/javascript"></script><script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-12496734-2");
+		pageTracker._trackPageview();
+	} catch(err) {}</script><!--[if lte IE 9]><link rel='stylesheet' type='text/css' href='../redesign_ie.css' /><![endif]--><!--[if gte IE 10]><link rel='stylesheet' type='text/css' href='../redesign_ie.css' /><![endif]--><!--[if !IE]--><link rel="stylesheet" type="text/css" href="./한국어 맞춤법_문법 검사기_files/redesign.css"><!--[endif]--></head>
+
+<!-- Google 통계 Analytics 수집 삽입 스크립트 시작  -->
+
+	
+	
+<!-- 구글 통계 스크립트 끝  -->
+
+ <body leftmargin="0" topmargin="0" text="#333333" onload="fOnLoadProc();" style="zoom: 1;">
+	<!-- =============== -->
+	<!-- =============== -->
+	<table id="tableMain">
+		<tbody><tr id="trMain">
+			<td id="tdHead" style="background-image:url(&#39;../images/title.gif&#39;);">
+				<a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#" onclick="fShowHelpPopup(&#39;../&#39;);">온라인 검사기 사용법</a>
+				&nbsp;|&nbsp;
+				<a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#" onclick="fShowUserReportPopup(&#39;../&#39;);">의견 보내기</a>
+			</td>
+		</tr>
+		<tr id="trMain">
+			<td id="tdBody">
+
+				<!-- 검사 결과 -->	
+				<table id="tableResult">
+
+					<!-- 원문 타이틀 / 새 문장 검사 -->
+					<tbody><tr>
+						<td id="tdResultLTitle1" class="tdBox">
+							<div width="88px">
+								<img id="bgResultLTitle1" src="./한국어 맞춤법_문법 검사기_files/bgResultLTitle1.gif">
+							</div>
+							<div style="float:right;">
+								<font id="tResultLTitle1" style="float:right; margin-right:10px">[총 331자]</font><br>
+							</div>
+						</td>
+						<td><div style="width:11px;"></div></td>
+						<td id="tdResultRTitle" class="tdBox">
+							<div width="88px">
+								<img id="bgResultRTitle" src="./한국어 맞춤법_문법 검사기_files/bgResultRTitle.gif">
+							</div>
+							<div style="float:right;">
+								<span id="textUIChange" style="float:right; margin-right:10px" onclick="fChangeUIMode()">옛 인터페이스 사용하기</span><br>
+							</div>
+						</td>
+					</tr>
+
+					<!-- 원문 / 오른쪽 결과 테이블 -->
+					<tr>
+						<td class="tdMainFrame">
+
+							<!-- 원문 -->
+							<div id="divLeft1" class="divScrollbarStyle" onscroll="fScroll1()">
+							<table id="tableLeft1">
+								<tbody><tr><td id="tdCorrection1stBox"><font id="ul_0" color="blue" class="ul blue" onclick="fShowHelp(&#39;0&#39;)"><span class="correction">푸링</span>풀링</font> <font id="ul_1" color="red" class="ul red" onclick="fShowHelp(&#39;1&#39;)"><span class="correction">계층은</span>레이어는</font> <font id="ul_2" color="blue" class="ul blue" onclick="fShowHelp(&#39;2&#39;)"><span class="correction">?</span>컨볼류션</font> <font id="ul_3" color="red" class="ul red" onclick="fShowHelp(&#39;3&#39;)"><span class="correction">계층의</span>레이어의</font> 출력 데이터를 입력으로 받아서 출력 데이터(Activation Map)의 크기를 줄이거나 특정 데이터를 강조하는 용도로 사용됩니다.
+<br><font id="ul_4" color="blue" class="ul blue" onclick="fShowHelp(&#39;4&#39;)"><span class="correction">풀 링</span>플링</font> <font id="ul_5" color="red" class="ul red" onclick="fShowHelp(&#39;5&#39;)"><span class="correction">계층을</span>레이어를</font> 처리하는 방법으로는 Max Pooling과 Average <font id="ul_6" color="blue" class="ul blue" onclick="fShowHelp(&#39;6&#39;)"><span class="correction">Poohing</span>Pooning</font>, Min Pooling이 있습니다.
+<br>정사각 행렬의 특정 <font id="ul_7" color="blue" class="ul blue" onclick="fShowHelp(&#39;7&#39;)"><span class="correction minor">영역<span class="sp"></span> 안에</span>영역안에</font> 값의 최댓값을 모으거나 특정 영역의 평균을 구하는 방식으로 동작합니다.
+<br>&lt;그림 5&gt;는 Max pooling과 Average Pooling의 동작 방식을 설명합니다.
+<br>일반적으로 <font id="ul_8" color="blue" class="ul blue" onclick="fShowHelp(&#39;8&#39;)"><span class="correction">Poking</span>Pooing</font> <font id="ul_9" color="red" class="ul red" onclick="fShowHelp(&#39;9&#39;)"><span class="correction">치수와</span>사이즈와</font> Stride를 같은 크기로 설정하여 모든 원소가 <font id="ul_10" color="red" class="ul red" onclick="fShowHelp(&#39;10&#39;)"><span class="correction minor">한<span class="sp"></span> 번씩</span>한번씩</font> <font id="ul_11" color="green" class="ul green" onclick="fShowHelp(&#39;11&#39;)"><span class="correction minor">처리<span class="tie"></span>되도록</span>처리 되도록</font> 설정합니다. </td></tr>
+							</tbody></table>
+							</div>
+
+						</td>
+						<td><div style="width:11px;"></div></td>
+						<td id="tdRight" class="tdMainFrame" rowspan="4">
+							<!-- 교정 테이블  -->
+							<table class="divRight">
+								<tbody><tr style="border:0px;">
+									<td id="tdCorrectionTable1st">
+										<div id="divCorrectionTableBox1st" class="divScrollbarStyle divCorrectionTableBoxStyle">
+	<form id="formBugReport" name="formBugReport" action="http://speller.cs.pusan.ac.kr/PnuWebSpeller/BugReporting.asp" method="post" accept-charset="euc-kr">
+
+		<!-- 세로로 가운데 정렬을 하려고 테이블로 묶음  -->
+		<table border="0" cellpadding="0" cellspacing="0" width="411" height="480">
+		<tbody><tr><td align="center" valign="center">
+
+<br>
+
+<table id="tableErr_0" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="0">입력 내용</td>
+		<td id="tdErrorWord_0" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">풀링</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_0" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_0" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_0" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="풀링"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">푸링</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">풀릴</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">풀린</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_0" class="tdETNor" helpnum="0"><br>철자 검사를 해 보니 이 어절은 분석할 수 없으므로 틀린 말로 판단하였습니다.<br><br>후보 어절은 이 철자검사/교정기에서 띄어쓰기, 붙여 쓰기, 음절대치와 같은 교정방법에 따라 수정한 결과입니다.<br><br>후보 어절 중 선택하시거나 오류 어절을 수정하여 주십시오.<br><br>* 단, 사전에 없는 단어이거나 사용자가 올바르다고 판단한 어절에 대해서는 통과하세요!!</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center">없음</td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_0">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_0" class="tdETNor"><textarea id="txtComment_0" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(0);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_1" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="1">입력 내용</td>
+		<td id="tdErrorWord_1" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">레이어는</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_1" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_1" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_1" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="레이어는"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">계층은</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">단계는</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">층은</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_1" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_1">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_1" class="tdETNor"><textarea id="txtComment_1" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(1);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_2" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="2">입력 내용</td>
+		<td id="tdErrorWord_2" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">컨볼류션</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_2" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_2" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_2" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="컨볼류션"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">대치어 없음</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_2" class="tdETNor" helpnum="0"><br>철자 검사를 해 보니 이 어절은 분석할 수 없으므로 틀린 말로 판단하였습니다.<br><br>후보 어절은 이 철자검사/교정기에서 띄어쓰기, 붙여 쓰기, 음절대치와 같은 교정방법에 따라 수정한 결과입니다.<br><br>후보 어절 중 선택하시거나 오류 어절을 수정하여 주십시오.<br><br>* 단, 사전에 없는 단어이거나 사용자가 올바르다고 판단한 어절에 대해서는 통과하세요!!</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center">없음</td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_2">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_2" class="tdETNor"><textarea id="txtComment_2" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(2);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_3" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="3">입력 내용</td>
+		<td id="tdErrorWord_3" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">레이어의</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_3" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_3" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_3" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="레이어의"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">계층의</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">단계의</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">층의</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_3" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_3">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_3" class="tdETNor"><textarea id="txtComment_3" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(3);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_4" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="4">입력 내용</td>
+		<td id="tdErrorWord_4" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">플링</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_4" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_4" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_4" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="플링"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">풀 링</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_4" class="tdETNor" helpnum="57058"><br>입력 오류입니다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/sentence/harmony/main.asp" target="PnuSpellHelp">복문, 중문 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_4">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_4" class="tdETNor"><textarea id="txtComment_4" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(4);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_5" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="5">입력 내용</td>
+		<td id="tdErrorWord_5" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">레이어를</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_5" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_5" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_5" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="레이어를"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">계층을</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">단계를</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">층을</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_5" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_5">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_5" class="tdETNor"><textarea id="txtComment_5" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(5);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_6" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="6">입력 내용</td>
+		<td id="tdErrorWord_6" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">Pooning</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_6" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_6" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_6" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="Pooning"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poohing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Pooling</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Pooping</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Phoning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Mooning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Nooning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Spooning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Peening</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_6" class="tdETNor" helpnum="30643"><br>영어 단어를 잘못 표기하셨습니다.<br><br>고유명사의 첫 글자나 문장을 시작할 때는 대문자로 써야 하고, 다른 글자나 일반 명사는 소문자로 적습니다. 첫 글자만 따서 만든 단어일 때는 모두 대문자로 씁니다.<br><br>&nbsp;&nbsp;(예) Seoul<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appletiME -&gt; time<br><br>로마자를 입력할 때도 한글처럼 알파벳을 잘못 입력하여 오류를 범할 수 있으므로 주의해야 합니다.<br><br>(1) 알파벳의 순서를 바꿔 쓰거나 다른 글자를 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adn -&gt; and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theone -&gt; throne<br><br>(2) 필요한 글자가 빠지거나 불필요한 글자를 더 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comitment -&gt; commitment<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wellcome -&gt; welcome</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/ps/main.asp" target="PnuSpellHelp">한글 맞춤법 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_6">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_6" class="tdETNor"><textarea id="txtComment_6" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(6);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_7" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="7">입력 내용</td>
+		<td id="tdErrorWord_7" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">영역안에</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_7" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_7" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_7" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="영역안에"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">영역 안에</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_7" class="tdETNor" helpnum="7998"><br>다음 명사와 결합한 단어는 복합 명사로 보기 어려우므로 띄어 써야 바릅니다.<br><br>&nbsp;&nbsp;(예) 앞 - 건물 앞에서, 맨 앞에 서라, 문 앞, 시청 앞<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;뒤 - 건물 뒤에는, 한 시간 뒤 전 - 3년 전에, 졸업 전 후 - 퇴근 후에, 저녁 후 옆 - 그 옆에, 양 옆 안 - 가게 안에서, 골목 안으로, 몸 안, 열흘 안, 차 안 밖 - 굴 밖으로, 그 밖에, 담 밖, 성문 밖, 이 밖에 속 - 산 속에, 어둠 속, 입 속, 책 속 위 - 산 위, 장대 위에는, 돛대 위로 밑 - 바퀴 밑으로 끝 - 마루 끝, 세상 끝까지 날 - 마지막 날까지 땅 - 강원도 땅 때 - 장마 때, 방학 때, 썰물 때가 되다 떼 - 양 떼, 젊은이 한 떼 막 - 근육성 막 맛 - 조미료 맛, 국물 맛이 시원하다 면 - 양쪽 면 밤 - 그날 밤, 여름 밤 변 - 한강 변, 우측 변에서 빛 - 한 가닥 빛, 단풍 빛이 곱다 탓 - 성격 탓, 조상 탓, 날씨 탓만 하다</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center">없음</td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_7">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_7" class="tdETNor"><textarea id="txtComment_7" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(7);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_8" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="8">입력 내용</td>
+		<td id="tdErrorWord_8" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">Pooing</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_8" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_8" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_8" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="Pooing"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poking</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poring</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Posing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poxing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Booing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Cooing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Mooing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Wooing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poohing</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_8" class="tdETNor" helpnum="30643"><br>영어 단어를 잘못 표기하셨습니다.<br><br>고유명사의 첫 글자나 문장을 시작할 때는 대문자로 써야 하고, 다른 글자나 일반 명사는 소문자로 적습니다. 첫 글자만 따서 만든 단어일 때는 모두 대문자로 씁니다.<br><br>&nbsp;&nbsp;(예) Seoul<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appletiME -&gt; time<br><br>로마자를 입력할 때도 한글처럼 알파벳을 잘못 입력하여 오류를 범할 수 있으므로 주의해야 합니다.<br><br>(1) 알파벳의 순서를 바꿔 쓰거나 다른 글자를 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adn -&gt; and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theone -&gt; throne<br><br>(2) 필요한 글자가 빠지거나 불필요한 글자를 더 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comitment -&gt; commitment<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wellcome -&gt; welcome</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/ps/main.asp" target="PnuSpellHelp">한글 맞춤법 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_8">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_8" class="tdETNor"><textarea id="txtComment_8" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(8);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_9" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="9">입력 내용</td>
+		<td id="tdErrorWord_9" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">사이즈와</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_9" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_9" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_9" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="사이즈와"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">치수와</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">크기와</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_9" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_9">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_9" class="tdETNor"><textarea id="txtComment_9" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(9);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_10" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="10">입력 내용</td>
+		<td id="tdErrorWord_10" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">한번씩</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_10" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_10" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_10" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="한번씩"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">한 번씩</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_10" class="tdETNor" helpnum="20210"><br>사물의 수나 양을 나타내어 체언을 꾸미는 수관형사는 뒤에 오는 명사 또는 의존 명사와 띄어 씁니다.<br><br>&nbsp;&nbsp;(예) 몇 개월, 십오 년, 한두 마리, 서너 명, 반 시간<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;두 가지, 여섯 가지, 몇 가지, 두어 개, 십여 달</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/space/main.asp" target="PnuSpellHelp">띄어쓰기 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_10">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_10" class="tdETNor"><textarea id="txtComment_10" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(10);">
+</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_11" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="11">입력 내용</td>
+		<td id="tdErrorWord_11" class="tdErrWord" style="color:#008000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#008000;">처리 되도록</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT" style="vertical-align: top;">대치어<button class="btnShowUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnShowUserInput_11" title="직접 대치어를 입력할 수 있습니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-pencil"></span><span class="ui-button-text"></span></button><button class="btnHideUserInput ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" style="width:12px;" id="btnHideUserInput_11" title="대치어 입력 칸을 제거합니다." role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-close"></span><span class="ui-button-text"></span></button></td>
+		<td id="tdReplaceWord_11" class="tdReplace green"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="처리 되도록"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">처리되도록</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_11" class="tdETNor" helpnum="6025"><br>이 예의 '-되다'는 앞의 명사와 붙여야 합니다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/space/main.asp" target="PnuSpellHelp">띄어쓰기 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_11">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_11" class="tdETNor"><textarea id="txtComment_11" class="tdBugReport" style="width:258px;" onclick="onCommentClick(this);">대치어가 맞지 않거나, 다른 의견이 있으면 내용을 적어서 '보내기'를 눌러 주세요.</textarea>
+<input type="button" value="보내기" class="btnBugReport2" onclick="onBugReport(11);">
+</td>
+</tr>
+</tbody></table><br>
+
+
+		</td></tr></tbody></table>
+
+		<!-- 오류 보고를 위한 post 변수값  -->
+		<input type="hidden" id="hiddenInputStr" name="hiddenInputStr" value="">
+		<input type="hidden" id="hiddenErrorIdx" name="hiddenErrorIdx">
+		<input type="hidden" id="hiddenErrorWord" name="hiddenErrorWord">
+		<input type="hidden" id="hiddenReplaceWord" name="hiddenReplaceWord">
+		<input type="hidden" id="hiddenComment" name="hiddenComment">
+
+	</form>
+</div>
+									</td>
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+					
+					<!-- 바닥글-->
+					<tr>
+						<td id="tdResultLTitle3" class="tdMainFrame">
+							<table><tbody><tr><td id="tdForResultLTitle3">
+								<img id="bgResultLTitle3" src="./한국어 맞춤법_문법 검사기_files/bgResultLTitle3.gif">
+								<font id="pResultLTitle3">한 번에 300어절씩 검사합니다.</font>
+							</td></tr></tbody></table>
+						</td>
+					</tr>
+					
+					<tr>
+						<td id="tdResultDesc" class="tdMainFrame" colspan="2">
+						
+						</td>
+					</tr>
+					
+				</tbody></table>
+				
+				
+				<!-- 버튼  -->
+				<table id="tableButton"><tbody><tr><td id="tdButton">
+					<b id="idButtons"><table width="465px" style="float:left;"><tbody><tr><td width="93px" align="left"><input id="btnRenew2" type="image" tabindex="1" title="새 문서 검사하기" src="./한국어 맞춤법_문법 검사기_files/btnRenew2.gif" onmouseout="this.src=&#39;../images/btnRenew2.gif&#39;;" onmouseover="this.src=&#39;../images/btnRenew2_over.gif&#39;;" onmousedown="this.src=&#39;../images/btnRenew2_click.gif&#39;;" onclick="fRenew();"></td><td width="93px" align="left"><input id="btnOrgCopy" type="image" width="88" height="39" tabindex="2" title="결과 복사하기" src="./한국어 맞춤법_문법 검사기_files/btnOrgCopy.gif" onmouseout="this.src=&#39;../images/btnOrgCopy.gif&#39;;" onmouseover="this.src=&#39;../images/btnOrgCopy_over.gif&#39;;" onmousedown="this.src=&#39;../images/btnOrgCopy_click.gif&#39;;"></td><td width="80px" align="left"><input id="btnGoBackEditor" type="image" tabindex="3" title="돌아가기" src="./한국어 맞춤법_문법 검사기_files/btnGoBackEditor.gif" onmouseout="this.src=&#39;../images/btnGoBackEditor.gif&#39;;" onmouseover="this.src=&#39;../images/btnGoBackEditor_over.gif&#39;;" onmousedown="this.src=&#39;../images/btnGoBackEditor_click.gif&#39;;" onclick="history.go(-1);"></td><td width="60px" align="left"><div width="30px" tabindex="2"></div></td><td width="60px" align="left"><input id="btnPrev" type="image" tabindex="4" title="첫 결과입니다." src="./한국어 맞춤법_문법 검사기_files/btnPrev_disable.gif" style="cursor:default;"></td><td width="60px" align="left"><input id="btnNext" type="image" tabindex="5" title="마지막 결과입니다." src="./한국어 맞춤법_문법 검사기_files/btnNext_disable.gif" style="cursor:default;"></td></tr></tbody></table></b>
+					<form id="formNext" name="formNext" action="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/checkNext.asp" method="post"><!--다음 검사할 내용--><input type="hidden" id="text2" name="text2" value="empty">
+<input type="hidden" id="oldPageNumber" name="pageNumber" value="1">
+</form>
+					<form id="formReCheck" name="formReCheck" action="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp" method="post">
+						<input id="text1" name="text1" type="hidden" value="">
+					</form>
+				</td></tr></tbody></table>
+
+
+			</td>
+		</tr>
+
+
+		<tr id="trMain">
+			<td id="tdTail">
+
+				<table id="tableTail">
+					<tbody><tr id="trMain">
+						<td id="tdLogo" rowspan="3" style="background-image:url(&#39;../images/logo.jpg&#39;);"></td>
+						<td id="tdCopyright">
+							Copyrightⓒ2001 AI Lab &amp; Narainfotech. All Rights Reserved.
+						</td>
+						<td id="tdTailMenu">
+							<p style="margin-left:90px;">
+							<a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#" onclick="fShowOrderPopup(&quot;../&quot;);">맞춤법/문법 검사기 문의</a>
+							</p>
+						</td>
+					</tr>
+					<tr id="trMain">
+						<td id="tdTailDesc" colspan="2">
+							한국어 맞춤법/문법 검사기는 부산대학교 인공지능연구실과 (주)나라인포테크가 공동으로 만들고 있습니다.
+						</td>
+					</tr>
+					<tr id="trMain">
+						<td id="tdTailDesc" colspan="2">
+							새 인터페이스는 <a href="http://pxd.co.kr/">pxd. inc.</a>의 <a href="http://story.pxd.co.kr/1096">無異</a>님께서 제공해주셨습니다.
+						</td>
+					</tr>
+				</tbody></table>
+
+			</td>
+		</tr>
+
+	</tbody></table>
+
+
+	<!-- =============== -->
+	<!-- =============== -->
+	<table id="tableTitleGoHome"><tbody><tr><td>
+		<a href="http://speller.cs.pusan.ac.kr/"><img id="btntitleGoHome" src="./한국어 맞춤법_문법 검사기_files/titleGoHome.gif" alt="새 문서 검사하기" border="0"></a>
+	</td></tr></tbody></table>
+
+
+	<div id="divPopupBackground" style="opacity: 0; visibility: hidden;">
+	</div>
+	<div id="divClosePopup" style="top: -980px; left: 694px; visibility: hidden;">
+		<input id="btnClosePopup" type="button" value="이전 화면" onclick="fHidePopup();">
+	</div>
+
+
+	<img id="imgPopup" src="./한국어 맞춤법_문법 검사기_files/WebSpellerHelp_newUI.jpg" style="top: -1000px; left: 0px; width: 844px; height: 559px; visibility: hidden;">
+	<iframe id="framePopup" scrolling="no" style="visibility: hidden;" src="./한국어 맞춤법_문법 검사기_files/saved_resource.html"></iframe>
+
+
+<iframe id="ifHidden" name="ifHidden" style="display:none; width:300px; height:200px;" src="./한국어 맞춤법_문법 검사기_files/saved_resource(1).html"></iframe>
+	<!-- =============== -->
+	<!-- =============== -->
+	<!-- 1차 교정 테이블 -->
+<div id="correctionTable" style="display:none; width:300px; height:200px;">
+	<form id="formBugReport1" name="formBugReport" action="http://speller.cs.pusan.ac.kr/PnuWebSpeller/BugReporting.asp" method="post" accept-charset="euc-kr">
+
+		<!-- 세로로 가운데 정렬을 하려고 테이블로 묶음  -->
+		<table border="0" cellpadding="0" cellspacing="0" width="411" height="480">
+		<tbody><tr><td align="center" valign="center">
+
+<br>
+
+<table id="tableErr_0" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="0">입력 내용</td>
+		<td id="tdErrorWord_0" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">풀링</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_0" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="풀링"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">푸링</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">풀릴</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">풀린</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_0" class="tdETNor" helpnum="0"><br>철자 검사를 해 보니 이 어절은 분석할 수 없으므로 틀린 말로 판단하였습니다.<br><br>후보 어절은 이 철자검사/교정기에서 띄어쓰기, 붙여 쓰기, 음절대치와 같은 교정방법에 따라 수정한 결과입니다.<br><br>후보 어절 중 선택하시거나 오류 어절을 수정하여 주십시오.<br><br>* 단, 사전에 없는 단어이거나 사용자가 올바르다고 판단한 어절에 대해서는 통과하세요!!</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center">없음</td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_0">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_0" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_1" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="1">입력 내용</td>
+		<td id="tdErrorWord_1" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">레이어는</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_1" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="레이어는"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">계층은</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">단계는</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">층은</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_1" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_1">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_1" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_2" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="2">입력 내용</td>
+		<td id="tdErrorWord_2" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">컨볼류션</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_2" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="컨볼류션"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">대치어 없음</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_2" class="tdETNor" helpnum="0"><br>철자 검사를 해 보니 이 어절은 분석할 수 없으므로 틀린 말로 판단하였습니다.<br><br>후보 어절은 이 철자검사/교정기에서 띄어쓰기, 붙여 쓰기, 음절대치와 같은 교정방법에 따라 수정한 결과입니다.<br><br>후보 어절 중 선택하시거나 오류 어절을 수정하여 주십시오.<br><br>* 단, 사전에 없는 단어이거나 사용자가 올바르다고 판단한 어절에 대해서는 통과하세요!!</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center">없음</td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_2">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_2" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_3" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="3">입력 내용</td>
+		<td id="tdErrorWord_3" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">레이어의</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_3" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="레이어의"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">계층의</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">단계의</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">층의</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_3" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_3">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_3" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_4" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="4">입력 내용</td>
+		<td id="tdErrorWord_4" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">플링</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_4" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="플링"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">풀 링</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_4" class="tdETNor" helpnum="57058"><br>입력 오류입니다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/sentence/harmony/main.asp" target="PnuSpellHelp">복문, 중문 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_4">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_4" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_5" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="5">입력 내용</td>
+		<td id="tdErrorWord_5" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">레이어를</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_5" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="레이어를"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">계층을</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">단계를</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">층을</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_5" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_5">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_5" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_6" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="6">입력 내용</td>
+		<td id="tdErrorWord_6" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">Pooning</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_6" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="Pooning"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poohing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Pooling</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Pooping</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Phoning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Mooning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Nooning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Spooning</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Peening</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_6" class="tdETNor" helpnum="30643"><br>영어 단어를 잘못 표기하셨습니다.<br><br>고유명사의 첫 글자나 문장을 시작할 때는 대문자로 써야 하고, 다른 글자나 일반 명사는 소문자로 적습니다. 첫 글자만 따서 만든 단어일 때는 모두 대문자로 씁니다.<br><br>&nbsp;&nbsp;(예) Seoul<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appletiME -&gt; time<br><br>로마자를 입력할 때도 한글처럼 알파벳을 잘못 입력하여 오류를 범할 수 있으므로 주의해야 합니다.<br><br>(1) 알파벳의 순서를 바꿔 쓰거나 다른 글자를 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adn -&gt; and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theone -&gt; throne<br><br>(2) 필요한 글자가 빠지거나 불필요한 글자를 더 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comitment -&gt; commitment<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wellcome -&gt; welcome</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/ps/main.asp" target="PnuSpellHelp">한글 맞춤법 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_6">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_6" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_7" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="7">입력 내용</td>
+		<td id="tdErrorWord_7" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">영역안에</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_7" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="영역안에"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">영역 안에</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_7" class="tdETNor" helpnum="7998"><br>다음 명사와 결합한 단어는 복합 명사로 보기 어려우므로 띄어 써야 바릅니다.<br><br>&nbsp;&nbsp;(예) 앞 - 건물 앞에서, 맨 앞에 서라, 문 앞, 시청 앞<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;뒤 - 건물 뒤에는, 한 시간 뒤 전 - 3년 전에, 졸업 전 후 - 퇴근 후에, 저녁 후 옆 - 그 옆에, 양 옆 안 - 가게 안에서, 골목 안으로, 몸 안, 열흘 안, 차 안 밖 - 굴 밖으로, 그 밖에, 담 밖, 성문 밖, 이 밖에 속 - 산 속에, 어둠 속, 입 속, 책 속 위 - 산 위, 장대 위에는, 돛대 위로 밑 - 바퀴 밑으로 끝 - 마루 끝, 세상 끝까지 날 - 마지막 날까지 땅 - 강원도 땅 때 - 장마 때, 방학 때, 썰물 때가 되다 떼 - 양 떼, 젊은이 한 떼 막 - 근육성 막 맛 - 조미료 맛, 국물 맛이 시원하다 면 - 양쪽 면 밤 - 그날 밤, 여름 밤 변 - 한강 변, 우측 변에서 빛 - 한 가닥 빛, 단풍 빛이 곱다 탓 - 성격 탓, 조상 탓, 날씨 탓만 하다</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center">없음</td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_7">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_7" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_8" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="8">입력 내용</td>
+		<td id="tdErrorWord_8" class="tdErrWord" style="color:#0000FF;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#0000FF;">Pooing</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_8" class="tdReplace blue"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="Pooing"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poking</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poring</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Posing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poxing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Booing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Cooing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Mooing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Wooing</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">Poohing</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_8" class="tdETNor" helpnum="30643"><br>영어 단어를 잘못 표기하셨습니다.<br><br>고유명사의 첫 글자나 문장을 시작할 때는 대문자로 써야 하고, 다른 글자나 일반 명사는 소문자로 적습니다. 첫 글자만 따서 만든 단어일 때는 모두 대문자로 씁니다.<br><br>&nbsp;&nbsp;(예) Seoul<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appletiME -&gt; time<br><br>로마자를 입력할 때도 한글처럼 알파벳을 잘못 입력하여 오류를 범할 수 있으므로 주의해야 합니다.<br><br>(1) 알파벳의 순서를 바꿔 쓰거나 다른 글자를 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adn -&gt; and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theone -&gt; throne<br><br>(2) 필요한 글자가 빠지거나 불필요한 글자를 더 입력한 오류<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comitment -&gt; commitment<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wellcome -&gt; welcome</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/ps/main.asp" target="PnuSpellHelp">한글 맞춤법 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_8">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_8" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_9" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="9">입력 내용</td>
+		<td id="tdErrorWord_9" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">사이즈와</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_9" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="사이즈와"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">치수와</a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">크기와</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_9" class="tdETNor" helpnum="8276"><br>외래어보다는 순수 우리말이나 한자어로 된, 우리가 자주 쓰는 말을 사용합시다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/dictionary/refine/main.asp" target="PnuSpellHelp">순화용어</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_9">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_9" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_10" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="10">입력 내용</td>
+		<td id="tdErrorWord_10" class="tdErrWord" style="color:#FF0000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#FF0000;">한번씩</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_10" class="tdReplace red"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="한번씩"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">한 번씩</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_10" class="tdETNor" helpnum="20210"><br>사물의 수나 양을 나타내어 체언을 꾸미는 수관형사는 뒤에 오는 명사 또는 의존 명사와 띄어 씁니다.<br><br>&nbsp;&nbsp;(예) 몇 개월, 십오 년, 한두 마리, 서너 명, 반 시간<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;두 가지, 여섯 가지, 몇 가지, 두어 개, 십여 달</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/space/main.asp" target="PnuSpellHelp">띄어쓰기 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_10">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_10" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+<table id="tableErr_11" class="tableErrCorrect" border="1" cellpadding="3" cellspacing="0">
+	<!--틀린어절 -->
+	<tbody><tr>
+		<td class="tdLT" title="11">입력 내용</td>
+		<td id="tdErrorWord_11" class="tdErrWord" style="color:#008000;"><ul class="nav nav-stacked"><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link" style="color:#008000;">처리 되도록</a></li></ul></td>
+	</tr>
+	<!--대치어 -->
+	<tr>
+		<td class="tdLT">대치어</td>
+		<td id="tdReplaceWord_11" class="tdReplace green"><ul class="nav nav-stacked"><li class="liUserInputCandidate"><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link"><input class="inputCandidate" value="처리 되도록"></a></li><li><a href="http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp#link">처리되도록</a></li></ul></td>
+	</tr>
+		<!--도움말 -->
+		<tr>
+			<td class="tdLT">도움말</td>
+			<td id="tdHelp_11" class="tdETNor" helpnum="6025"><br>이 예의 '-되다'는 앞의 명사와 붙여야 합니다.</td>
+		</tr>
+		<!--관련사이트 -->
+			<tr>
+			<td class="tdLT">참고</td>
+			<td class="tdETNor" align="center"><a href="http://urimal.cs.pusan.ac.kr/urimal_new/learn/spelling/space/main.asp" target="PnuSpellHelp">띄어쓰기 관련</a></td>
+		</tr>
+		<!--오류보고 -->
+		<tr id="trBugReport_11">
+			<td class="tdLT">의견</td>
+			<td id="tdBugReport_11" class="tdETNor">
+		</td>
+</tr>
+</tbody></table><br>
+
+
+		</td></tr></tbody></table>
+
+		<!-- 오류 보고를 위한 post 변수값  -->
+		<input type="hidden" id="hiddenInputStr" name="hiddenInputStr" value="">
+		<input type="hidden" id="hiddenErrorIdx" name="hiddenErrorIdx">
+		<input type="hidden" id="hiddenErrorWord" name="hiddenErrorWord">
+		<input type="hidden" id="hiddenReplaceWord" name="hiddenReplaceWord">
+		<input type="hidden" id="hiddenComment" name="hiddenComment">
+
+	</form>
+</div>
+
+
+	<!-- 오류 수  -->
+	<input type="hidden" id="correctionTableSize" value="12">
+
+	<!-- ------------------------ -->
+	<!-- 틀린 부분 밑줄 그어 출력 -->
+<div id="bufUnderline" style="display:none; width:300px; height:200px;"><font id="ul_0" color="blue" class="ul" onclick="fShowHelp(&#39;0&#39;)">풀링</font> <font id="ul_1" color="red" class="ul" onclick="fShowHelp(&#39;1&#39;)">레이어는</font> <font id="ul_2" color="blue" class="ul" onclick="fShowHelp(&#39;2&#39;)">컨볼류션</font> <font id="ul_3" color="red" class="ul" onclick="fShowHelp(&#39;3&#39;)">레이어의</font> 출력 데이터를 입력으로 받아서 출력 데이터(Activation Map)의 크기를 줄이거나 특정 데이터를 강조하는 용도로 사용됩니다.
+<br><font id="ul_4" color="blue" class="ul" onclick="fShowHelp(&#39;4&#39;)">플링</font> <font id="ul_5" color="red" class="ul" onclick="fShowHelp(&#39;5&#39;)">레이어를</font> 처리하는 방법으로는 Max Pooling과 Average <font id="ul_6" color="blue" class="ul" onclick="fShowHelp(&#39;6&#39;)">Pooning</font>, Min Pooling이 있습니다.
+<br>정사각 행렬의 특정 <font id="ul_7" color="blue" class="ul" onclick="fShowHelp(&#39;7&#39;)">영역안에</font> 값의 최댓값을 모으거나 특정 영역의 평균을 구하는 방식으로 동작합니다.
+<br>&amp;lt그림 5&amp;gt는 Max pooling과 Average Pooling의 동작 방식을 설명합니다.
+<br>일반적으로 <font id="ul_8" color="blue" class="ul" onclick="fShowHelp(&#39;8&#39;)">Pooing</font> <font id="ul_9" color="red" class="ul" onclick="fShowHelp(&#39;9&#39;)">사이즈와</font> Stride를 같은 크기로 설정하여 모든 원소가 <font id="ul_10" color="red" class="ul" onclick="fShowHelp(&#39;10&#39;)">한번씩</font> <font id="ul_11" color="green" class="ul" onclick="fShowHelp(&#39;11&#39;)">처리 되도록</font> 설정합니다. </div>
+
+
+	<!-- 페이지 번호 -->
+	<input type="hidden" id="pageNumber" value="1">
+
+	<!-- --------------------------- -->
+	<!--오류 보고를 위한 post 변수값 -->
+	<input type="hidden" id="bufHiddenInputStr" name="bufHiddenInputStr" value="풀링 레이어는 컨볼류션 레이어의 출력 데이터를 입력으로 받아서 출력 데이터(Activation Map)의 크기를 줄이거나 특정 데이터를 강조하는 용도로 사용됩니다.
+플링 레이어를 처리하는 방법으로는 Max Pooling과 Average Pooning, Min Pooling이 있습니다.
+정사각 행렬의 특정 영역안에 값의 최댓값을 모으거나 특정 영역의 평균을 구하는 방식으로 동작합니다.
+&lt;그림 5&gt;는 Max pooling과 Average Pooling의 동작 방식을 설명합니다.
+일반적으로 Pooing 사이즈와 Stride를 같은 크기로 설정하여 모든 원소가 한번씩 처리 되도록 설정합니다. ">
+
+
+	<!-- --------------- -->
+	<!--다음 검사할 내용 -->
+	<input type="hidden" id="bufText2" name="bufText2" value="">
+
+
+</body></html>
